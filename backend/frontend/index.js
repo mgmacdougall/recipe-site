@@ -136,7 +136,7 @@ document.querySelector('.nav').addEventListener('click', e => {
     renderRecipeForm(e.target);
   }
   if (e.target.innerText.toLowerCase().includes('home')) {
-    location.replace('/');
+    location.replace('/frontend/');
   }
 });
 
@@ -147,19 +147,18 @@ document.querySelector('body').addEventListener('submit', async e => {
   const data = {name: title, steps: steps};
 
   const options = {
-    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    mode: 'cors', // no-cors, *cors, same-origin
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'same-origin', // include, *same-origin, omit
+    method: 'POST',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
     headers: {
       'Content-Type': 'application/json'
     },
-    redirect: 'follow', // manual, *follow, error
-    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    body: JSON.stringify(data) // body data type must match "Content-Type" header
+    redirect: 'follow',
+    body: JSON.stringify(data)
   };
 
   fetch(`http://localhost:5454/postDetails`, options).then(() => {
-    location.replace('/');
+    location.replace('/frontend/');
   });
 });
